@@ -1,2 +1,11 @@
-
-  
+<div>
+    <form (ngSubmit)="addTask()">
+      <input type="text" [(ngModel)]="task.titre" name="titre" placeholder="Titre de la tâche" required>
+      <textarea [(ngModel)]="task.description" name="description" placeholder="Description" required></textarea>
+      <input type="text" [(ngModel)]="task.image" name="image" placeholder="URL de l'image">
+      <label>
+        <input type="checkbox" [(ngModel)]="task.isDone" name="isDone"> Tâche accomplie
+      </label>
+      <button type="submit">Ajouter la tâche</button>
+    </form>
+  </div>
