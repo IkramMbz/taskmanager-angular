@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "taskmanager-45269": {
+      "hosting": {
+        "taskmanager": [
+          "taskmanager-45269"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "taskmanager-45269"
+  }
+}
