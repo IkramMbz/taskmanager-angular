@@ -1,16 +1,23 @@
 import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
-import { initFlowbite } from 'flowbite';
+import { Task } from './models/task.model';
+import { TaskService } from './services/task.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'taskmanager';
+export class AppComponent {
+  task: Task = {}; // Initialise l'objet Task
 
-  ngOnInit(): void {
-    initFlowbite();
+  constructor(private taskService: TaskService) {}
+  
+  addTask() {
+    if (this.task.titre && this.task.description) {
+      this.taskService.addTask(this.task).then(() => {
+        console.log('Task added successfully');
+        this.task = new Task(); // Réinitialiser le formulaire
+      });
+    }
   }
 }
