@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environment/environment';
 import { TaskComponent } from './components/task/task.component';
 import { FormsModule } from '@angular/forms';
@@ -27,4 +25,5 @@ import { SignupComponent } from './components/signup/signup.component';
   providers: [],
   bootstrap: [AppComponent],
 })
+
 export class AppModule {}
