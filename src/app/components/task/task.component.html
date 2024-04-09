@@ -484,10 +484,18 @@
       </nav>
     </header>
 
-    <section class="mt-32 flex flex-col ml-5">
+    <section class="mt-32 flex flex-col ml-5">''''rr
+      <div *ngFor="let task of tasks">
+         
+        <p>{{ task.description }}</p>
+        <!-- Ajoutez d'autres éléments pour afficher d'autres propriétés de la tâche si nécessaire -->
+      </div>
+
+      
+
       <form (ngSubmit)="addTask()"
         class="flex flex-col gap-4 bg-white rounded-lg shadow-2xl p-7">
-
+       
         <h2 class="text-base font-medium tracking-wide leading-6 text-neutral-900">Create New Card</h2>
 
         <input type="text" 

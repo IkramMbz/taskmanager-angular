@@ -11,6 +11,7 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class TaskComponent {
   task: Task = {}; // Initialise l'objet Task
+  tasks: Task[] = []; // Initialise un tableau de tâches
 
   constructor(private taskService: TaskService) {}
 
@@ -18,8 +19,19 @@ export class TaskComponent {
     if (this.task.titre && this.task.description) {
       this.taskService.addTask(this.task).then(() => {
         console.log('Task added successfully');
-        this.task = new Task(); // Réinitialiser le formulaire
+        this.task = {}; // Réinitialiser le formulaire
       });
     }
   }
+
+  getTask() {
+    this.taskService.getTasks().subscribe((querySnapshot) => {
+      // Mapper les documents de QuerySnapshot en un tableau de tâches
+      this.tasks = querySnapshot.docs.map(doc => doc.data());
+    });
+  }
+ 
+    ngOnInit(): void {
+        this.getTask()
+    }
 }

@@ -17,17 +17,17 @@ export class TaskService {
     return this.tasksCollection.add(task);
   }
 
-  getTask(tast: Task){
+  getTasks() {
     return this.tasksCollection.get();
   }
 
-    // Mettre à jour une tâche spécifique
-    updateTask(taskId: string, task: Task): Promise<void> {
-      return this.tasksCollection.doc().update(task);
-    }
-  
-    // Supprimer une tâche spécifique
-    deleteTask(taskId: string): Promise<void> {
-      return this.tasksCollection.doc(taskId).delete();
-    }
+  // Mettre à jour une tâche spécifique
+  updateTask(taskId: string, task: Task): Promise<void> {
+    return this.tasksCollection.doc().update(task);
+  }
+
+  // Supprimer une tâche spécifique
+  deleteTask(taskId: string): Promise<void> {
+    return this.tasksCollection.doc(taskId).delete();
+  }
 }
