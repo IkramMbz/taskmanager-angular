@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/services/auth.services';
 
 @Component({
@@ -10,17 +13,27 @@ export class SignupComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private titleService: Title, 
+    private authService: AuthService, 
+    private router: Router, 
+    private snackBar: MatSnackBar
+  ) {}
 
-  signUp() {
+  signup() {
     this.authService
       .signUp(this.email, this.password)
       .then(() => {
-        console.log('Inscription réussie');
-        // Redirection ou gestion de l'UI post-inscription
+        this.router.navigate(['/dashboard']);
       })
       .catch((error) => {
-        console.error(error);
+        this.snackBar.open(error, '❌', {
+          duration: 3000
+        });
       });
+  }
+
+  ngOnInit(): void {
+    this.titleService.setTitle('TaskSama - Inscription');
   }
 }

@@ -8,26 +8,30 @@ export class AuthService {
   constructor(private angularFireAuth: AngularFireAuth) {}
 
   public async isAuthenticated(): Promise<boolean> {
-    const user = this.angularFireAuth.currentUser;
-    return !!user;
+    return new Promise<boolean>((resolve, reject) => {
+      this.angularFireAuth.authState.subscribe(user => {
+        if (user && user.email) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      });
+    });
   }
 
-  // Inscription
   async signUp(email: string, password: string) {
     await this.angularFireAuth.createUserWithEmailAndPassword(email, password);
   }
 
-  // Connexion
   async signIn(email: string, password: string) {
     await this.angularFireAuth.signInWithEmailAndPassword(email, password);
   }
 
-  // Déconnexion
   async signOut() {
     await this.angularFireAuth.signOut();
+    window.location.href = '/login';
   }
 
-  // Obtenir l'état d'authentification de l'utilisateur
   getUser() {
     return this.angularFireAuth.authState;
   }

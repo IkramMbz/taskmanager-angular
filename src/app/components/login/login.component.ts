@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/services/auth.services';
 
 @Component({
@@ -10,17 +13,27 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private titleService: Title, 
+    private authService: AuthService, 
+    private router: Router, 
+    private snackBar: MatSnackBar
+  ) { }
 
   login() {
     this.authService
       .signIn(this.email, this.password)
-      .then((res) => {
-        console.log('Vous êtes connecté:', res);
-        // Redirection ou gestion de l'état connecté ici
+      .then(() => {
+        this.router.navigate(['/dashboard']);
       })
       .catch((error) => {
-        console.error('Erreur de connexion:', error);
+        this.snackBar.open(error, '❌', {
+          duration: 3000
+        });
       });
+  }
+
+  ngOnInit(): void {
+    this.titleService.setTitle('TaskSama - Connexion');
   }
 }

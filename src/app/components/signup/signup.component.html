@@ -1,1 +1,44 @@
-<p>signup works!</p>
+<div class="flex flex-col gap-8 justify-center overflow-y-auto items-center login-container w-full">
+    <div class="flex flex-col gap-2 text-center">
+        <h1 class="font-bold text-4xl">
+            Bienvenue,
+        </h1>
+
+        <p class="text-xl">
+            Rejoins-nous dès maintenant !<br />
+            Gère rapidement tes tâches à faire comme un maître.
+        </p>
+    </div>
+
+    <form (ngSubmit)="signup()" ngNativeValidate class="flex flex-col gap-8 w-full" novalidate>
+        <div class="relative">
+            <label for="emailAddress"
+                class="absolute bg-light-primary font-semibold left-2 p-1 -top-4 dark:bg-dark-primary">
+                E-mail
+            </label>
+
+            <input type="email" id="email" [(ngModel)]="email" name="email" required
+                class="bg-transparent py-4 rounded-md w-full" />
+        </div>
+
+        <div class="relative">
+            <label for="password"
+                class="absolute bg-light-primary font-semibold left-2 p-1 -top-4 dark:bg-dark-primary">
+                Mot de passe
+            </label>
+
+            <input type="password" id="password" [(ngModel)]="password" name="password" required
+                class="bg-transparent py-4 rounded-md w-full" />
+        </div>
+
+        <button type="submit"
+            class="bg-black font-semibold px-4 py-2 rounded-md text-white dark:bg-white dark:text-red dark:text-black">
+            S'inscrire
+        </button>
+    </form>
+
+    <div class="text-lg">
+        Déjà inscrit ?
+        <a href="/login" class="font-bold">Se connecter</a>
+    </div>
+</div>

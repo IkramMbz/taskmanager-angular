@@ -1,15 +1,42 @@
-<div class="login-container">
-    <h2>Connexion</h2>
-    <form (ngSubmit)="login()">
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Mot de passe:</label>
-        <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Connexion</button>
-    </form>
+<div class="flex flex-col gap-8 justify-center overflow-y-auto items-center login-container w-full">
+  <div class="flex flex-col gap-2 text-center">
+    <h1 class="font-bold text-4xl">
+      Bon Retour,
+    </h1>
+
+    <p class="text-xl">
+      Nous sommes heureux de te revoir.<br />
+      Connecte-toi pour profiter des fonctionnalités de ton compte.
+    </p>
   </div>
-  
+
+  <form (ngSubmit)="login()" ngNativeValidate class="flex flex-col gap-8 w-full" novalidate>
+    <div class="relative">
+      <label for="emailAddress" class="absolute bg-light-primary font-semibold left-2 p-1 -top-4 dark:bg-dark-primary">
+        E-mail
+      </label>
+
+      <input type="email" id="email" [(ngModel)]="email" name="email" required
+        class="bg-transparent py-4 rounded-md w-full" />
+    </div>
+
+    <div class="relative">
+      <label for="password" class="absolute bg-light-primary font-semibold left-2 p-1 -top-4 dark:bg-dark-primary">
+        Mot de passe
+      </label>
+
+      <input type="password" id="password" [(ngModel)]="password" name="password" required
+        class="bg-transparent py-4 rounded-md w-full" />
+    </div>
+
+    <button type="submit"
+      class="bg-black font-semibold px-4 py-2 rounded-md text-white dark:bg-white dark:text-red dark:text-black">
+      Connexion
+    </button>
+  </form>
+
+  <div class="text-lg">
+    Pas encore inscrit ?
+    <a href="/signup" class="font-bold">S'inscrire</a>
+  </div>
+</div>

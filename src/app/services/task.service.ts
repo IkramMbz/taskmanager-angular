@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { v4 as uuidv4 } from 'uuid';
+
 import { Task } from '../models/task.model';
 
 @Injectable({
@@ -10,23 +12,30 @@ export class TaskService {
 
   constructor(private firestore: AngularFirestore) {
     this.tasksCollection = this.firestore.collection<Task>('tasks');
-
   }
 
-  addTask(task: Task) {
-    return this.tasksCollection.add(task);
+  addTask(task: Task, userId: string) {
+    const taskId = task.id || uuidv4();
+
+    const taskWithDetails = {
+      ...task,
+      id: taskId,
+      userId: userId,
+      updatedAt: new Date()
+    };
+
+    return this.firestore.collection('tasks').add(taskWithDetails);
   }
 
   getTasks() {
     return this.tasksCollection.get();
   }
 
-  // Mettre à jour une tâche spécifique
-  updateTask(taskId: string, task: Task): Promise<void> {
-    return this.tasksCollection.doc().update(task);
+  updateTask(task: Task): Promise<void> {
+    // return this.tasksCollection.doc().update(task);
+    return this.tasksCollection.doc(task.id).update(task);
   }
 
-  // Supprimer une tâche spécifique
   deleteTask(taskId: string): Promise<void> {
     return this.tasksCollection.doc(taskId).delete();
   }
