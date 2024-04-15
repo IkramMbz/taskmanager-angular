@@ -31,3 +31,7 @@ Exécutez `ng e2e` pour exécuter les tests end-to-end via une plate-forme de vo
 ## Aide supplémentaire
 
 Pour obtenir plus d'aide sur Angular CLI, utilisez `ng help` ou consultez la page [Angular CLI Overview and Command Reference](https://angular.io/cli).
+
+## Ressources pour les utilisateurs agrées :
+- Trello : https://trello.com/b/hQnPdOHx/projet-web-angular-flutter-firebase
+- Firebase : https://console.firebase.google.com/u/1/project/taskmanager-45269/overview
