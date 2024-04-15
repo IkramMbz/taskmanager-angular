@@ -1,4 +1,3 @@
-
 <ng-container *ngIf="isAuthenticated">
   <div class="bg-white border border-gray-300 flex justify-between gap-2 mb-16 p-4 rounded-md shadow-lg text-black w-full">
     <div class="flex gap-2">
@@ -35,7 +34,7 @@
         </ng-container>
       </div>
 
-      <div class="border-t border-gray-200 flex flex-col gap-2  py-2 w-full">
+      <div class="border-t border-gray-200 flex flex-col gap-2 py-2 w-full hidden">
         <input type="text" [(ngModel)]="task.imageUrl" placeholder="URL Image" class="w-full">
 
         <div class="flex justify-between">
@@ -69,7 +68,7 @@
 
       <hr class="h-2 w-full my-2 border-t border-gray-200" />
 
-      <button type="submit" class="px-16 py-2 bg-indigo-400 text-white rounded-lg w-full">
+      <button type="submit" class="px-16 py-2 bg-black text-white rounded-lg w-full">
         Ajouter
       </button>
     </form>
