@@ -8,7 +8,11 @@ Les utilisateurs peuvent s'inscrire avec leur adresse e-mail et un mot de passe,
 - **Inscription:** Les utilisateurs peuvent créer un compte avec leur adresse e-mail et un mot de passe.
 - **Connexion:** Les utilisateurs enregistrés peuvent se connecter pour accéder à leur tableau de bord.
 - **Tableau de bord:** À la connexion, les utilisateurs sont dirigés vers leur tableau de bord où ils peuvent gérer leurs tâches.
-- **Gestion des tâches:** Les utilisateurs peuvent éditer les détails d'une tâche en survolant les champs sur les cartes de tâches.
+- **Gestion des tâches:** Les utilisateurs peuvent éditer les détails d'une tâche en survolant les champs sur les cartes de tâches :
+
+## Utilisateur test :
+Adresse e-mail : johndoe@efrei.com
+Mot de passe : johndoe@efrei.com
 
 ## Serveur de développement
 
