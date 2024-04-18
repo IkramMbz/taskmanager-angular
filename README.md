@@ -1,6 +1,6 @@
 # TaskSama
 
-##DEMO :
+## DEMO :
 https://main--stately-churros-f2a3bc.netlify.app/login
 
 TaskSama est une application web construite avec Angular qui permet aux utilisateurs de gérer leurs tâches de manière efficace.
