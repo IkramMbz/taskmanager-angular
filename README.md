@@ -1,7 +1,19 @@
 # TaskSama
 
+## LIEN VERSION FLUTTER : 
+
+https://github.com/filmons/taskmanager-flutter
+
+https://hub.docker.com/r/hermela12/flutter_docker (image docker)
+
+
 ## DEMO :
 https://main--stately-churros-f2a3bc.netlify.app/login
+
+https://665cf04a82d8ef0ca1759cc2--tasksama.netlify.app/login) (DEMO 2)
+
+
+---
 
 TaskSama est une application web construite avec Angular qui permet aux utilisateurs de gérer leurs tâches de manière efficace.
 Les utilisateurs peuvent s'inscrire avec leur adresse e-mail et un mot de passe, puis se connecter pour accéder à leur tableau de bord.
